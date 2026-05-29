@@ -1,0 +1,197 @@
+/* TV-first display styles */
+
+:root {
+  --bg: #0c1823;
+  --surface: #152030;
+  --surface-hover: #1a2a3d;
+  --border: #243347;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-accent: #ec2f4d;
+  --brand: #ec2f4d;
+  --error: #f85149;
+  --radius: 12px;
+  --font: 'Lato', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+.display-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2.5rem 3rem;
+  gap: 2rem;
+}
+
+/* ── Header ── */
+.display-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-shrink: 0;
+}
+
+.display-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.display-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.display-subtitle {
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  color: var(--text-accent);
+  font-weight: 500;
+}
+
+/* ── Messages ── */
+.display-feed {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow: hidden;
+}
+
+.display-no-messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  color: var(--text-secondary);
+}
+
+.message-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: clamp(1rem, 2vw, 1.75rem) clamp(1.25rem, 2.5vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.message-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.message-author {
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.message-time {
+  font-size: clamp(0.85rem, 1.4vw, 1.2rem);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.message-text {
+  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  line-height: 1.55;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ── Footer ── */
+.display-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 2rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.display-footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.display-updated {
+  font-size: clamp(0.85rem, 1.4vw, 1.2rem);
+  color: var(--text-secondary);
+}
+
+.display-tagline {
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.display-error-banner {
+  font-size: clamp(0.85rem, 1.4vw, 1.2rem);
+  color: var(--error);
+}
+
+/* ── Full-screen button ── */
+.fullscreen-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: clamp(0.85rem, 1.4vw, 1.2rem);
+  font-family: var(--font);
+  padding: 0.6rem 1.2rem;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.fullscreen-btn:hover,
+.fullscreen-btn:focus-visible {
+  border-color: var(--brand);
+  color: var(--brand);
+  outline: none;
+}
+
+/* ── Error / unauthorized full-page states ── */
+.display-error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 3rem;
+  text-align: center;
+}
+
+.display-error-page p {
+  font-size: clamp(1.25rem, 3vw, 2.5rem);
+  color: var(--text-secondary);
+}
+
+/* ── 4K / large displays ── */
+@media (min-width: 3000px) {
+  .display-page {
+    padding: 4rem 6rem;
+  }
+}
