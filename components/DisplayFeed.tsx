@@ -17,6 +17,15 @@ interface DisplayFeedProps {
   displayKey: string
 }
 
+function formatTime(timestamp: string): string {
+  const ms = parseFloat(timestamp) * 1000
+  return new Date(ms).toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  })
+}
+
 function formatUpdatedAt(iso: string): string {
   return new Date(iso).toLocaleTimeString('en-US', {
     hour: 'numeric',
@@ -91,7 +100,7 @@ export default function DisplayFeed({ displayKey }: DisplayFeedProps) {
             <article key={msg.id} className="message-card">
               <div className="message-meta">
                 <span className="message-author">{msg.userName}</span>
-                <span className="message-time">{msg.time}</span>
+                <span className="message-time">{formatTime(msg.timestamp)}</span>
               </div>
               <p
                 className="message-text"
