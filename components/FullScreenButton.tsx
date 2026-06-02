@@ -26,7 +26,7 @@ export default function FullScreenButton() {
 
   return (
     <button className="fullscreen-btn" onClick={toggle}>
-      {isFullscreen ? 'Exit Full Screen' : 'Enter Full Screen'}
+      {isFullscreen ? '✕' : '+'}
     </button>
   )
 }

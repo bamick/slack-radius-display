@@ -39,7 +39,7 @@ export default function DisplayFeed({ displayKey }: DisplayFeedProps) {
   const [updatedAt, setUpdatedAt] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [isUnauthorized, setIsUnauthorized] = useState(false)
-  const refreshSeconds = 30
+  const refreshSeconds = 120
 
   const loadMessages = useCallback(async () => {
     try {
